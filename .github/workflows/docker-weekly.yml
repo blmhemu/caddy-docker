@@ -1,5 +1,11 @@
 name: Build and push image
-on: [push]
+on:
+  schedule:
+    - cron: '* * * * 0'
+  push:
+    branches:
+      - 'main'
+      - 'master'
 jobs:
   docker:
     runs-on: ubuntu-latest

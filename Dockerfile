@@ -1,10 +1,9 @@
-FROM caddy:2.3.0-builder AS builder
+FROM caddy:2.5.2-builder-alpine AS builder
 
 RUN xcaddy build \
-    --with github.com/pteich/caddy-tlsconsul \
-    --with github.com/greenpau/caddy-auth-portal
+    --with github.com/pteich/caddy-tlsconsul
 
-FROM caddy:2.3.0-alpine
+FROM caddy:2.5.2-alpine
 
 COPY --from=builder /usr/bin/caddy /usr/bin/caddy
 

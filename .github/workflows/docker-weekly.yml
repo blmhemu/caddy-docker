@@ -6,6 +6,9 @@ on:
     branches:
       - 'main'
       - 'master'
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   docker:
     runs-on: ubuntu-latest

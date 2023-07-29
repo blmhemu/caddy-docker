@@ -23,8 +23,8 @@ jobs:
       - name: Build push Docker images
         uses: docker/build-push-action@v4
         with:
-          platforms: linux/amd64,linux/arm64,linux/arm
           push: true
+          platforms: linux/amd64,linux/arm64,linux/arm
           tags: blmhemu/caddy:${{ github.event.release.tag_name || 'latest' }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
